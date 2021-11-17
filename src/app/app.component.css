@@ -1,3 +1,18 @@
-h1{
+div {
   background: darkseagreen;
+  display: flex;
+  align-content: space-around;
+  width: 100%;
+  justify-content: center;
 }
+
+a {
+  align-items: center;
+  text-align: center;
+  font-weight: bold;
+  font-size: 24px;
+  text-decoration: none;
+  color: black;
+  border: 2px solid greenyellow;
+}
+

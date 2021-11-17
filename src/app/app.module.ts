@@ -11,8 +11,11 @@ import {RouterModule} from "@angular/router";
 import {CommentComponent} from './components/comment/comment.component';
 import {CommentsComponent} from './components/comments/comments.component';
 import {UserDetailComponent} from './components/user-detail/user-detail.component';
-import {UserService} from "./services/user.service";
 import {UserResolveService} from "./services/user-resolve.service";
+import {PostResolveService} from "./services/post-resolve.service";
+import { PostDetailComponent } from './components/post-detail/post-detail.component';
+import { CommentDetailComponent } from './components/comment-detail/comment-detail.component';
+import {CommentResolveService} from "./services/comment-resolve.service";
 
 @NgModule({
   declarations: [
@@ -23,7 +26,9 @@ import {UserResolveService} from "./services/user-resolve.service";
     PostComponent,
     CommentComponent,
     CommentsComponent,
-    UserDetailComponent
+    UserDetailComponent,
+    PostDetailComponent,
+    CommentDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -41,8 +46,28 @@ import {UserResolveService} from "./services/user-resolve.service";
         ]
       },
 
-      {path: 'posts', component: PostsComponent},
-      {path: 'comments', component: CommentsComponent}
+      {
+        path: 'posts',
+        component: PostsComponent,
+        children: [
+          {
+            path: ':id',
+            component: PostDetailComponent,
+            resolve: {data: PostResolveService}
+          },
+        ]
+      },
+      {
+        path: 'comments',
+        component: CommentsComponent,
+        children: [
+          {
+            path: ':id',
+            component: CommentDetailComponent,
+            resolve: {data: CommentResolveService}
+          },
+        ]
+      }
     ])
   ],
   providers: [],

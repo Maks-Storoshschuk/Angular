@@ -9,6 +9,7 @@ import {User} from "../../models/User";
   styleUrls: ['./user-detail.component.css']
 })
 export class UserDetailComponent implements OnInit {
+
   user: User;
 
   constructor(private activatedRoute: ActivatedRoute,
