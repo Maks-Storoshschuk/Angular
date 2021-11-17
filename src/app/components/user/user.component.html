@@ -1,4 +1,4 @@
-<p>{{user.id}}{{user.name}} {{user.email}} {{user.username}}
+<p>{{user.name}} {{user.email}} {{user.username}}  <a [routerLink]="[user.id]">details</a>
   <br>Address:
   <br>{{user.address.city}} {{user.address.street}} {{user.address.suite}} {{user.address.zipcode}}
   <br>Geo:
@@ -7,3 +7,4 @@
   <br>Company:
   <br>{{user.company.name}} {{user.company.catchPhrase}} {{user.company.bs}}
 </p>
+
