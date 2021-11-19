@@ -1,9 +1,9 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-root',
-  templateUrl: 'app.component.html',
-  styleUrls: ['app.component.css']
+  template: '<router-outlet></router-outlet>',
+  styleUrls: ['components/home/home.component.css']
 })
 export class AppComponent {
 

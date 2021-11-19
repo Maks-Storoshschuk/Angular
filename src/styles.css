@@ -1,10 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
-body > app-root > app-users{
+body > app-root > app-home > app-users{
   display: flex;
 }
-body > app-root > app-comments{
+body > app-root >app-home > app-comments{
   display: flex;
 }
-body > app-root > app-posts{
+body > app-root >app-home > app-posts{
   display: flex;
 }
+

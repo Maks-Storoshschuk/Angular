@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {Comment} from "../../models/Comment";
+import {IComment} from "../../interfaces";
 import {ActivatedRoute} from "@angular/router";
-import {CommentService} from "../../services/comment.service";
+import {CommentService} from "../../services";
 
 @Component({
   selector: 'app-comment-detail',
@@ -10,7 +10,7 @@ import {CommentService} from "../../services/comment.service";
 })
 export class CommentDetailComponent implements OnInit {
 
-  comment: Comment;
+  comment: IComment;
 
   constructor(private activatedRoute: ActivatedRoute,
               private commentService: CommentService) {

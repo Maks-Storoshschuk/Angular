@@ -1,19 +1,19 @@
 import {Injectable} from '@angular/core';
 import {ActivatedRouteSnapshot, Resolve, RouterStateSnapshot} from "@angular/router";
-import {Comment} from "../models/Comment";
+import {IComment} from "../interfaces";
 import {CommentService} from "./comment.service";
 import {Observable} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
 })
-export class CommentResolveService implements Resolve<Comment> {
+export class CommentResolveService implements Resolve<IComment> {
 
   constructor(private commentService: CommentService) {
 
   }
 
-  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Comment> | Promise<Comment> | Comment {
+  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<IComment> | Promise<IComment> | IComment {
     return this.commentService.getComment(+route.params['id']);
   }
 }
