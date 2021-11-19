@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Post} from "../../models/Post";
 import {ActivatedRoute} from "@angular/router";
 import {PostService} from "../../services/post.service";
@@ -10,10 +10,10 @@ import {PostService} from "../../services/post.service";
 })
 export class PostDetailComponent implements OnInit {
 
-  post:Post
+  post: Post
 
-  constructor(private activatedRoure:ActivatedRoute,
-              private postService:PostService) {
+  constructor(private activatedRoure: ActivatedRoute,
+              private postService: PostService) {
     this.activatedRoure.data.subscribe(value => this.post = value['data'])
   }
 

@@ -13,8 +13,8 @@ import {CommentsComponent} from './components/comments/comments.component';
 import {UserDetailComponent} from './components/user-detail/user-detail.component';
 import {UserResolveService} from './services/user-resolve.service'
 import {PostResolveService} from "./services/post-resolve.service";
-import { PostDetailComponent } from './components/post-detail/post-detail.component';
-import { CommentDetailComponent } from './components/comment-detail/comment-detail.component';
+import {PostDetailComponent} from './components/post-detail/post-detail.component';
+import {CommentDetailComponent} from './components/comment-detail/comment-detail.component';
 import {CommentResolveService} from "./services/comment-resolve.service";
 
 @NgModule({
