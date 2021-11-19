@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {AbstractControl, FormControl, FormGroup, ValidatorFn, Validators} from "@angular/forms";
 import {CommentService, PostService, UserService} from "../../services";
 import {IPost, IUser} from "../../interfaces";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-forms',
@@ -18,14 +19,17 @@ export class FormsComponent implements OnInit {
   myForm: FormGroup;
   myForm2: FormGroup;
   myFormDZ: FormGroup;
-  users:IUser[];
-  userDetail:IUser;
-  userInfo:IUser;
-  userPost:IPost[];
+  users: IUser[];
+  userDetail: IUser;
+  userInfo: IUser;
+  userPost: IPost[];
 
 
-  constructor(private userService:UserService,
-              private postService:PostService) {
+  constructor(private userService: UserService,
+              private postService: PostService,
+              private router: Router,
+              private activatedRoute: ActivatedRoute
+  ) {
   }
 
   customValidator(control: AbstractControl): null | object {
@@ -38,14 +42,13 @@ export class FormsComponent implements OnInit {
       age: new FormControl(25)
     })
     this.myForm2 = new FormGroup({
-      userId:new FormControl(1)
+      userId: new FormControl(1)
     })
     this.myFormDZ = new FormGroup({
-      userId:new FormControl(1)
+      userId: new FormControl(1)
     })
     this.userService.getUsers().subscribe(value => this.users = value)
   }
-
 
 
   save(tref: HTMLFormElement) {
@@ -61,16 +64,21 @@ export class FormsComponent implements OnInit {
 
   showDetails() {
     const id = this.myForm2.controls['userId'].value;
-    this.userDetail = this.users[id-1]
+    this.userDetail = this.users[id - 1]
   }
 
   userInfo2() {
     const id = this.myFormDZ.controls['userId'].value;
-    this.userInfo = this.users[id-1]
+    this.userInfo = this.users[id - 1]
   }
 
   userPost2() {
     const id = this.myFormDZ.controls['userId'].value;
     this.postService.getPost(`?userId=${id}`).subscribe(value => this.userPost = value)
+  }
+
+  navTo() {
+    const id = this.myFormDZ.controls['userId'].value;
+    this.router.navigate([id], {relativeTo: this.activatedRoute})
   }
 }

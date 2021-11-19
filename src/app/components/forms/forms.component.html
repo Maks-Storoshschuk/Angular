@@ -29,7 +29,7 @@
 </form>
 <div *ngIf="userDetail">{{userDetail|json}}</div>
 
-<form [formGroup]="myFormDZ" (ngSubmit)="userInfo2();userPost2()">
+<form [formGroup]="myFormDZ" (ngSubmit)="userInfo2();userPost2();navTo()">
 
   <select formControlName="userId">
     <option *ngFor="let user of users" [value]="user.id">{{user.name}}</option>
@@ -43,3 +43,4 @@
 <div *ngIf="userPost">
   {{userPost|json}}
 </div>
+<router-outlet></router-outlet>
