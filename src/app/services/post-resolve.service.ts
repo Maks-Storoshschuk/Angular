@@ -7,12 +7,12 @@ import {PostService} from "./post.service";
 @Injectable({
   providedIn: 'root'
 })
-export class PostResolveService implements Resolve<IPost> {
+export class PostResolveService implements Resolve<IPost[]> {
 
   constructor(private postService: PostService) {
   }
 
-  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<IPost> | Promise<IPost> | IPost {
-    return this.postService.getPost(+route.params['id']);
+  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<IPost[]> | Promise<IPost[]> | IPost[] {
+    return this.postService.getPost(route.params['id']);
   }
 }
