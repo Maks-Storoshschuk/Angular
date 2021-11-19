@@ -11,7 +11,7 @@ import {RouterModule} from "@angular/router";
 import {CommentComponent} from './components/comment/comment.component';
 import {CommentsComponent} from './components/comments/comments.component';
 import {UserDetailComponent} from './components/user-detail/user-detail.component';
-import {UserResolveService} from "./services/user-resolve.service";
+import {UserResolveService} from './services/user-resolve.service'
 import {PostResolveService} from "./services/post-resolve.service";
 import { PostDetailComponent } from './components/post-detail/post-detail.component';
 import { CommentDetailComponent } from './components/comment-detail/comment-detail.component';
