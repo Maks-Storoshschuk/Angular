@@ -1,8 +1,12 @@
-import {NgModule} from '@angular/core';
+import {LOCALE_ID, NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {AppComponent} from './app.component';
 import {HttpClientModule} from "@angular/common/http";
 import {Route, RouterModule} from "@angular/router";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {registerLocaleData} from '@angular/common'
+import localUA from '@angular/common/locales/uk'
+
 
 import {UserComponent} from './components/user/user.component';
 import {UsersComponent} from './components/users/users.component';
@@ -16,8 +20,11 @@ import {PostDetailComponent} from './components/post-detail/post-detail.componen
 import {CommentDetailComponent} from './components/comment-detail/comment-detail.component';
 import {HomeComponent} from './components/home/home.component';
 import {TestGuard} from "./guards/test.guard";
-import { FormsComponent } from './components/forms/forms.component';
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {FormsComponent} from './components/forms/forms.component';
+import {TestComponent} from './components/test/test.component';
+import { IncrementPipe } from './pipes/increment.pipe';
+
+registerLocaleData(localUA, 'UA')
 
 const routes: Route[] = [
   // {path:'',redirectTo:'posts',pathMatch:'full'},
@@ -28,7 +35,7 @@ const routes: Route[] = [
       {
         path: 'users',
         // component: UsersComponent,canActivateChild:[TestGuard],canDeactivate:[TestGuard],
-        component: UsersComponent,canActivate:[TestGuard],canDeactivate:[TestGuard],
+        component: UsersComponent, canActivate: [TestGuard], canDeactivate: [TestGuard],
         children: [
           {
             path: ':id',
@@ -77,7 +84,9 @@ const routes: Route[] = [
     PostDetailComponent,
     CommentDetailComponent,
     HomeComponent,
-    FormsComponent
+    FormsComponent,
+    TestComponent,
+    IncrementPipe
   ],
   imports: [
     BrowserModule,
@@ -86,7 +95,10 @@ const routes: Route[] = [
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    {provide:LOCALE_ID, useValue: 'UA'},
+    IncrementPipe
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
