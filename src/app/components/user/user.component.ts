@@ -1,7 +1,7 @@
 import {Component, Input, OnInit, Output, EventEmitter} from '@angular/core';
 import {IUser} from "../../interfaces";
 import {ActivatedRoute, Router} from "@angular/router";
-import {UserService} from "../../services";
+import {HideButtonService, UserService} from "../../services";
 
 @Component({
   selector: 'app-user',
@@ -11,7 +11,8 @@ import {UserService} from "../../services";
 export class UserComponent implements OnInit {
   @Input()
   user: IUser;
-  className:string
+  className:string;
+  currentButton:number;
 
   @Output()
   userName = new EventEmitter<string>();
@@ -19,6 +20,7 @@ export class UserComponent implements OnInit {
 
   constructor(private router: Router,
               private activatedRoute: ActivatedRoute,
+              private hideButton: HideButtonService
   ) {
   }
 
@@ -26,12 +28,18 @@ export class UserComponent implements OnInit {
   }
 
   navTo() {
+
     this.router.navigate([this.user.id], {relativeTo: this.activatedRoute})
   }
 
   lift() {
     this.userName.emit(this.user.name)
-    this.className = 'hide'
+    console.log()
     // this.userId.subscribe(value=>this.id = value)
+  }
+
+  showButt() {
+    this.hideButton.getCurrentButton().subscribe(value => this.currentButton = value)
+    this.hideButton.setCurrentButton(this.user.id);
   }
 }

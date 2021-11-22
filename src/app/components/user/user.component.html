@@ -2,6 +2,6 @@
   {{user.name}}
   {{user.email}}
   {{user.username}}
-  <button [className]="className" (click)="navTo();lift();">baton info</button>
+  <button (click)="navTo();lift();showButt()" *ngIf="currentButton !== user.id">baton info</button>
 </p>
 
