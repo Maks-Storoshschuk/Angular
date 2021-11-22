@@ -23,6 +23,8 @@ import {TestGuard} from "./guards/test.guard";
 import {FormsComponent} from './components/forms/forms.component';
 import {TestComponent} from './components/test/test.component';
 import { IncrementPipe } from './pipes/increment.pipe';
+import { BoldColorDirective } from './directives/bold-color.directive';
+import { TransformatorPipe } from './pipes/transformator.pipe';
 
 registerLocaleData(localUA, 'UA')
 
@@ -86,7 +88,9 @@ const routes: Route[] = [
     HomeComponent,
     FormsComponent,
     TestComponent,
-    IncrementPipe
+    IncrementPipe,
+    BoldColorDirective,
+    TransformatorPipe
   ],
   imports: [
     BrowserModule,

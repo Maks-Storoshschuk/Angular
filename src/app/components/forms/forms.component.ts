@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {AbstractControl, FormControl, FormGroup, ValidatorFn, Validators} from "@angular/forms";
-import {CommentService, PostService, UserService} from "../../services";
+import {AbstractControl, FormControl, FormGroup, Validators} from "@angular/forms";
+import {DataTransferService, PostService, UserService} from "../../services";
 import {IPost, IUser} from "../../interfaces";
 import {ActivatedRoute, Router} from "@angular/router";
 
@@ -28,7 +28,9 @@ export class FormsComponent implements OnInit {
   constructor(private userService: UserService,
               private postService: PostService,
               private router: Router,
-              private activatedRoute: ActivatedRoute
+              private activatedRoute: ActivatedRoute,
+              private dataTransfer:DataTransferService
+
   ) {
   }
 
@@ -80,5 +82,9 @@ export class FormsComponent implements OnInit {
   navTo() {
     const id = this.myFormDZ.controls['userId'].value;
     this.router.navigate([id], {relativeTo: this.activatedRoute})
+  }
+
+  setAge():void {
+    this.dataTransfer.setAgeData(this.myForm.controls['age'].value)
   }
 }

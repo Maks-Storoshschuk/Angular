@@ -11,7 +11,7 @@
     <input type="text" formControlName="name">
   </div>
   <div>
-    <input type="text" formControlName="age">
+    <input type="number" formControlName="age" (input)="setAge()">
   </div>
   <span *ngIf="myForm.controls['name'].errors?.['minlength']">{{myForm.controls['name'].errors?.['minlength']|json}}
   </span>

@@ -9,3 +9,6 @@ body > app-root >app-home > app-posts{
   display: flex;
 }
 
+.hide{
+  display: none;
+}
