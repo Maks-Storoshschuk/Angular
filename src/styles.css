@@ -1,0 +1,12 @@
+body > app-root > app-home > app-users{
+  display: flex;
+  background-color: whitesmoke;
+}
+body > app-root > app-home > app-comments{
+  display: flex;
+  background-color: lightblue;
+}
+body > app-root > app-home > app-posts{
+  display: flex;
+  background-color: khaki;
+}
