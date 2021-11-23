@@ -1,0 +1,17 @@
+*{
+  margin: 0;
+}
+
+h1{
+  background-color: lightgreen;
+  text-align: center;
+}
+#navigate{
+  display: flex;
+  justify-content: space-around ;
+  font-size: 30px;
+  background-color: cadetblue;
+}
+a{
+  color: white;
+}
