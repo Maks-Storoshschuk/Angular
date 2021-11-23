@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {ActivatedRouteSnapshot, Resolve, RouterStateSnapshot} from "@angular/router";
-import {IPost} from "../interfaces";
+import {IPost} from "../../../interfaces";
 import {Observable} from "rxjs";
 import {PostService} from "./post.service";
 

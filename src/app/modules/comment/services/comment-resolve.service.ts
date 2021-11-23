@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {ActivatedRouteSnapshot, Resolve, RouterStateSnapshot} from "@angular/router";
-import {IComment} from "../interfaces";
+import {IComment} from "../../../interfaces";
 import {CommentService} from "./comment.service";
 import {Observable} from "rxjs";
 
